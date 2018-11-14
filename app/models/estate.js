@@ -1,13 +1,21 @@
 export default class Estate {
   constructor(data) {
-    if (!data.price || !data.size || !data.beds || !data.bath || !data.address || !data.pic) {
+    if (!data.hasOwnProperty('bedrooms') ||
+      !data.hasOwnProperty('bathrooms') ||
+      !data.hasOwnProperty('imgUrl') ||
+      !data.hasOwnProperty('levels') ||
+      !data.hasOwnProperty('year') ||
+      !data.hasOwnProperty('price')
+    ) {
       throw new Error('Invalid Estate Input')
-    } // 6 pieces of data
+    }
+    this.bedrooms = data.bedrooms;
+    this.bathrooms = data.bathrooms;
+    this.imgUrl = data.imgUrl;
+    this.levels = data.levels;
+    this.year = data.year;
     this.price = data.price;
-    this.size = data.size;
-    this.beds = data.beds;
-    this.bath = data.bath;
-    this.address = data.address;
-    this.pic = data.pic;
+    this.description = data.description || 'No Description'
+    this.size = data.size || 11
   }
 }
