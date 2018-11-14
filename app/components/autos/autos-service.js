@@ -7,8 +7,6 @@ export default class AutosService {
   constructor() {
   }
   addAuto(formData, callback) {
-    let newAuto = new Auto(formData)
-    // _autos.push(newAuto)
     if (!formData) {
       throw new Error('Input Form Data')
     }
